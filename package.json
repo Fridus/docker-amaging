@@ -1,0 +1,8 @@
+{
+  "name": "amaging-server",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "igloo-amaging": "0.0.12"
+  }
+}
