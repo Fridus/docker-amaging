@@ -27,7 +27,7 @@ docker run -d -v \
 
 ### Env
 
-- `PORT`: Default `3000`
+- `PORT`: Default `3333`
 - `CID`: Default `user`
 - `KEY`: Default `key`
 - `SECRET`: Default `secret`
