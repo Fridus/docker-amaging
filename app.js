@@ -7,8 +7,9 @@ var app = express();
 var cid = process.env.CID || 'user';
 var key = process.env.KEY || 'key';
 var secret = process.env.SECRET || 'secret';
+var isDocker = process.env.INDOCKER || false;
 
-var storage = '/data';
+var storage = (isDocker ? '' : __dirname) + '/data';
 
 var customers = {};
 customers[cid] = {

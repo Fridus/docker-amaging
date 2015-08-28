@@ -1,2 +1,2 @@
 
-npm i && docker build -t amaging .
+npm i && docker build -t amaging:0.1.0 .
