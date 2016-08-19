@@ -5,8 +5,8 @@ ENV INDOCKER=true
 WORKDIR /src
 
 # dependencies imagemagick graphicsmagick
-RUN apt-get update
-RUN apt-get install -y nodejs imagemagick graphicsmagick
+RUN apt-get -qq update
+RUN apt-get -qq install -y nodejs imagemagick graphicsmagick
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 ADD . .
