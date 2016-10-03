@@ -1,14 +1,19 @@
-FROM phusion/baseimage
+FROM node:6
+
 ENV PORT=3333
 ENV INDOCKER=true
 
-WORKDIR /src
+WORKDIR /app
 
 # dependencies imagemagick graphicsmagick
 RUN apt-get -qq update
 RUN apt-get -qq install -y nodejs imagemagick graphicsmagick
-RUN ln -s /usr/bin/nodejs /usr/bin/node
 
-ADD . .
+ADD app.js .
+ADD node_modules node_modules
+ADD package.json .
+
+VOLUME /data
 EXPOSE 3333
-CMD ["node", "app.js"]
+
+CMD ["node", "/app"]
