@@ -1,10 +1,10 @@
 {
   "name": "amaging-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "app.js",
   "dependencies": {
     "cors": "^2.7.1",
     "express": "^4.13.3",
-    "igloo-amaging": "^0.1.0"
+    "@igloo/igloo-amaging": "^0.1.1"
   }
 }

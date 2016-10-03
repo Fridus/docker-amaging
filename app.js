@@ -1,6 +1,7 @@
 
 var express = require('express');
 var cors = require('cors');
+var path = require('path');
 
 var app = express();
 
@@ -9,7 +10,10 @@ var key = process.env.KEY || 'key';
 var secret = process.env.SECRET || 'secret';
 var isDocker = process.env.INDOCKER || false;
 
-var storage = (isDocker ? '' : __dirname) + '/data';
+var storage = '/data'
+if (!isDocker) {
+  storage = path.join(__dirname, storage)
+}
 
 var customers = {};
 customers[cid] = {
@@ -30,7 +34,7 @@ customers[cid] = {
 
 customers[cid].access[key] = secret;
 
-var amaging = require('igloo-amaging')({ customers: customers });
+var amaging = require('@igloo/igloo-amaging')({ customers: customers });
 
 app.use(cors());
 app.use(amaging);
