@@ -1,6 +1,6 @@
 {
   "name": "amaging-server",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "main": "app.js",
   "dependencies": {
     "cors": "^2.8.4",
