@@ -14,7 +14,7 @@ let customers = {}
 if (process.env.CUSTOMERS) {
   customers = JSON.parse(process.env.CUSTOMERS)
 } else {
-  const storage = isDocker
+  const storage = !isDocker
     ? path.join(__dirname, '/data')
     : '/data'
 
