@@ -3,8 +3,8 @@
   "version": "1.7.0",
   "main": "app.js",
   "dependencies": {
+    "@igloo-amaging-platform/server": "^2.0.1",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "@igloo-be/amaging": "^1.7.0"
+    "express": "^4.16.4"
   }
 }

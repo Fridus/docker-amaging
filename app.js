@@ -1,10 +1,9 @@
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
-const Amaging = require('@igloo-be/amaging').default
+const { amaging } = require('@igloo-amaging-platform/server')
 
-const app = express()
-
+const port = process.env.PORT || 3000
 const isDocker = process.env.INDOCKER || false
 const cid = process.env.CID || 'user'
 const key = process.env.KEY || 'key'
@@ -36,11 +35,19 @@ if (process.env.CUSTOMERS) {
   customers[cid].access[key] = secret
 }
 
-const amaging = Amaging({ customers: customers })
+async function createServer() {
+  const app = express()
+  const amagingServer = await amaging(req => ({ customers: customers }))
 
-app.use(cors())
-app.use(amaging)
+  app.use(cors())
+  app.use(amagingServer)
 
-app.listen(amaging.get('port'), function () {
-  console.log('Listen on '+ amaging.get('port') + '!')
-})
+  return app
+}
+
+createServer()
+  .then(app => {
+    app.listen(port, function () {
+      console.log('Listen on ' + port + '!')
+    })
+  })
