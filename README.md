@@ -10,9 +10,10 @@ docker build -t amaging .
 ### Run
 
 ```sh
-docker run -d -v \
-  `pwd`/data:/data \
+docker run -d \
+  -v `pwd`/data:/data \
   --name=amaging \
+  -p 8080:8080 \
   amaging
 ```
 
