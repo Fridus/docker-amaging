@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:14
 
 ENV PORT=8080
 ENV INDOCKER=true
